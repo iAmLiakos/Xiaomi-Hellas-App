@@ -1,0 +1,19 @@
+﻿<Properties StartupConfiguration="{B05A4F23-E3AD-4F43-9AAF-CEC09E099357}|Default">
+  <MonoDevelop.Ide.ItemProperties.XiaomiMIUIHellas AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Android_Accelerated_x86" AndroidDesignerPreferredTheme="Theme.Material" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="XiaomiMIUIHellas/MiPhones.cs">
+    <Files>
+      <File FileName="XiaomiMIUIHellas/Properties/AndroidManifest.xml" Line="6" Column="12" />
+      <File FileName="XiaomiMIUIHellas/MainActivity.cs" Line="26" Column="59" />
+      <File FileName="XiaomiMIUIHellas/WebPageActivity.cs" Line="48" Column="41" />
+      <File FileName="XiaomiMIUIHellas/GuidesActivity.cs" Line="37" Column="51" />
+      <File FileName="XiaomiMIUIHellas/MiPhones.cs" Line="26" Column="4" />
+      <File FileName="XiaomiMIUIHellas/XtrvRoms.cs" Line="21" Column="56" />
+      <File FileName="XiaomiMIUIHellas/Resources/drawable/RoundedButtons.axml" Line="4" Column="46" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
