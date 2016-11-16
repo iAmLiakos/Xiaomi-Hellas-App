@@ -44,13 +44,14 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebPageActivity.cs" />
-    <Compile Include="GuidesActivity.cs" />
-    <Compile Include="MiPhones.cs" />
-    <Compile Include="XtrvRoms.cs" />
+    <Compile Include="Activities\GuidesActivity.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Activities\MiPhones.cs" />
+    <Compile Include="Activities\WebPageActivity.cs" />
+    <Compile Include="Activities\XtrvRoms.cs" />
+    <Compile Include="Activities\VipActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -66,20 +67,49 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\layout\WebSite.axml" />
-    <AndroidResource Include="Resources\drawable\xiaomihellaslogo.png" />
+    <AndroidResource Include="Resources\drawable\hellaslogo.png" />
     <AndroidResource Include="Resources\drawable\mi.png" />
-    <AndroidResource Include="Resources\layout\Guides.axml" />
     <AndroidResource Include="Resources\layout\MiPhones.axml" />
-    <AndroidResource Include="Resources\layout\XtrvRoms.axml" />
     <AndroidResource Include="Resources\drawable\phones.png" />
     <AndroidResource Include="Resources\drawable\logo.png" />
     <AndroidResource Include="Resources\drawable\logoHD.png" />
     <AndroidResource Include="Resources\drawable\RoundedButtons.axml" />
     <AndroidResource Include="Resources\drawable\xtrvroms.png" />
     <AndroidResource Include="Resources\drawable\mi3png.png" />
+    <AndroidResource Include="Resources\drawable\black_background.png" />
+    <AndroidResource Include="Resources\drawable\black_background_edited.png" />
+    <AndroidResource Include="Resources\drawable\backone.png" />
+    <AndroidResource Include="Resources\layout\NewMain.axml" />
+    <AndroidResource Include="Resources\drawable\supportbutton.png" />
+    <AndroidResource Include="Resources\drawable\enter.png" />
+    <AndroidResource Include="Resources\drawable\woodsign.png" />
+    <AndroidResource Include="Resources\drawable\HomeButtonWhite.png" />
+    <AndroidResource Include="Resources\drawable\ReloadButtonWhite.png" />
+    <AndroidResource Include="Resources\drawable\background.jpg" />
+    <AndroidResource Include="Resources\drawable\XiaomiDevices.png" />
+    <AndroidResource Include="Resources\drawable\mimix.png" />
+    <AndroidResource Include="Resources\drawable\mimixx.png" />
+    <AndroidResource Include="Resources\drawable\backbutton.png" />
+    <AndroidResource Include="Resources\drawable\forwardbutton.png" />
+    <AndroidResource Include="Resources\drawable\MyButtons.axml" />
+    <AndroidResource Include="Resources\drawable\testingbackgroundblured.png" />
+    <AndroidResource Include="Resources\drawable\backroundsea.png" />
+    <AndroidResource Include="Resources\drawable\testedited.png" />
+    <AndroidResource Include="Resources\drawable\discussforum.png" />
+    <AndroidResource Include="Resources\drawable\sunsetbackground.png" />
+    <AndroidResource Include="Resources\drawable\blackbackground.png" />
+    <AndroidResource Include="Resources\drawable\login.png" />
+    <AndroidResource Include="Resources\drawable\loginblack.png" />
+    <AndroidResource Include="Resources\drawable\buttonscrolldown.png" />
+    <AndroidResource Include="Resources\drawable\home.png" />
+    <AndroidResource Include="Resources\drawable\reload.png" />
+    <AndroidResource Include="Resources\drawable\menubutton.png" />
+    <AndroidResource Include="Resources\drawable\mifan.png" />
+    <AndroidResource Include="Resources\drawable\supportred.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
+    <Folder Include="Activities\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

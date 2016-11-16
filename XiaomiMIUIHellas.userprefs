@@ -1,17 +1,17 @@
 ﻿<Properties StartupConfiguration="{B05A4F23-E3AD-4F43-9AAF-CEC09E099357}|Default">
-  <MonoDevelop.Ide.ItemProperties.XiaomiMIUIHellas AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Android_Accelerated_x86" AndroidDesignerPreferredTheme="Theme.Material" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="XiaomiMIUIHellas/MiPhones.cs">
+  <MonoDevelop.Ide.ItemProperties.XiaomiMIUIHellas AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.d505d9f8" AndroidDesignerPreferredTheme="Theme.Material" />
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="XiaomiMIUIHellas/Properties/AndroidManifest.xml" Line="6" Column="12" />
-      <File FileName="XiaomiMIUIHellas/MainActivity.cs" Line="26" Column="59" />
-      <File FileName="XiaomiMIUIHellas/WebPageActivity.cs" Line="48" Column="41" />
-      <File FileName="XiaomiMIUIHellas/GuidesActivity.cs" Line="37" Column="51" />
-      <File FileName="XiaomiMIUIHellas/MiPhones.cs" Line="26" Column="4" />
-      <File FileName="XiaomiMIUIHellas/XtrvRoms.cs" Line="21" Column="56" />
-      <File FileName="XiaomiMIUIHellas/Resources/drawable/RoundedButtons.axml" Line="4" Column="46" />
+      <File FileName="XiaomiMIUIHellas/Activities/MainActivity.cs" Line="105" Column="4" />
+      <File FileName="XiaomiMIUIHellas/Resources/drawable/RoundedButtons.axml" Line="4" Column="35" />
+      <File FileName="XiaomiMIUIHellas/Activities/WebPageActivity.cs" Line="21" Column="3" />
+      <File FileName="XiaomiMIUIHellas/Activities/XtrvRoms.cs" Line="53" Column="32" />
+      <File FileName="XiaomiMIUIHellas/Activities/VipActivity.cs" Line="28" Column="4" />
+      <File FileName="XiaomiMIUIHellas/Activities/GuidesActivity.cs" Line="44" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

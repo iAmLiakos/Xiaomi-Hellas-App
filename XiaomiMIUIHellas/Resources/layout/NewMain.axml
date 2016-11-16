@@ -29,56 +29,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/relativeLayout1">
+                <ImageView
+                    android:src="@android:drawable/ic_menu_gallery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/hellasLogoView"
+                    android:background="#01ffffff"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp" />
                 <ImageButton
+                    android:src="@android:drawable/ic_menu_gallery"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/VipButton"
                     android:layout_alignParentRight="true"
-                    android:background="#01ffffff"
-                    android:src="@drawable/supportred" />
+                    android:background="#01ffffff" />
             </RelativeLayout>
-            <ImageView
-                android:src="@drawable/mifan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/hellasLogoView"
-                android:background="#01ffffff" />
-            <TextView
-                android:text="Xiaomi-Miui Hellas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView5"
-                android:gravity="center"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="#ff353535" />
-            <TextView
-                android:text="Είσοδος"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView6"
-                android:gravity="center"
-                android:layout_marginTop="65.0dp"
-                android:layout_marginRight="2dp"
-                android:textStyle="bold" />
             <ImageButton
-                android:src="@drawable/loginblack"
+                android:src="@android:drawable/ic_menu_gallery"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/websitebutton"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:background="#01ffffff"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="130dp"
                 android:layout_marginRight="10dp" />
             <ImageButton
-                android:src="@drawable/menubutton"
+                android:src="@android:drawable/ic_menu_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/dropdownmenubutton"
                 android:background="#01ffffff"
                 android:layout_gravity="center"
-                android:layout_marginTop="80.0dp" />
+                android:layout_marginTop="200.0dp" />
             <LinearLayout
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
@@ -132,7 +117,7 @@
                     android:gravity="center"
                     android:layout_marginTop="20.0dp" />
                 <ImageButton
-                    android:src="@drawable/mi3png"
+                    android:src="@android:drawable/ic_menu_gallery"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/miImageButton"

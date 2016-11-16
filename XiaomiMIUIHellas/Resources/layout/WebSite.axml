@@ -4,43 +4,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minWidth="25px"
-    android:minHeight="25px">
-    <RelativeLayout
-        android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
+    android:minHeight="25px"
+    android:background="#ff546e7a">
+    <TextView
+        android:text="Loading..."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loadingtext"
+        android:gravity="center"
+        android:layout_gravity="center" />
+    <ScrollView
+        android:id="@+id/ScrollView01"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/relativeLayout1">
-        <Button
-            android:text="Home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/homebuttonWebSite" />
-        <Button
-            android:text="Refresh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/refreshbuttonWebSite"
-            android:layout_alignParentRight="true" />
-        <android.webkit.WebView
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/webSiteView"
-            android:layout_below="@id/homebuttonWebSite"
-            android:fadeScrollbars="false"
-            android:scrollbars="vertical"
-            android:overScrollMode="ifContentScrolls"
-            android:scrollbarStyle="insideOverlay" />
-        <TextView
-            android:text="Loading..."
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/webSiteView"
-            android:id="@+id/loadingtext"
-            android:layout_toLeftOf="@id/refreshbuttonWebSite"
-            android:layout_toRightOf="@id/homebuttonWebSite"
-            android:gravity="center"
-            android:layout_alignParentTop="true" />
-    </RelativeLayout>
+            android:id="@+id/relativeLayoutwebSite"
+            android:nestedScrollingEnabled="true"
+            android:background="#ff546e7a">
+            <ImageButton
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/homebuttonWebSite"
+                android:background="#01000000"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+            <ImageButton
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/refreshbuttonWebSite"
+                android:layout_alignParentRight="true"
+                android:background="#01000000"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+            <android.webkit.WebView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/webSiteView"
+                android:fadeScrollbars="false"
+                android:scrollbars="vertical"
+                android:overScrollMode="ifContentScrolls"
+                android:scrollbarStyle="insideOverlay"
+                android:layout_marginTop="2dp"
+                android:background="#ff546e7a"
+                android:layout_below="@+id/homebuttonWebSite" />
+            <ImageButton xmlns:tools="http://schemas.android.com/tools"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/forwardpageButton"
+                android:layout_toLeftOf="@id/refreshbuttonWebSite"
+                android:background="#01ffffff"
+                android:layout_marginRight="10.0dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+            <ImageButton xmlns:tools="http://schemas.android.com/tools"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/backpageButton"
+                android:layout_toRightOf="@id/homebuttonWebSite"
+                android:background="#01ffffff"
+                android:layout_marginLeft="10.0dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+        </RelativeLayout>
+    </ScrollView>
 </LinearLayout>
