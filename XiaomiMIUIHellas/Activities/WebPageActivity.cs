@@ -14,12 +14,12 @@ using Android.Widget;
 
 namespace XiaomiMIUIHellas
 {
-	[Activity(Label = "Xiaomi Hellas Community", NoHistory = true)]
+	[Activity(Label = "Xiaomi Hellas Community", ConfigurationChanges= Android.Content.PM.ConfigChanges.Keyboard|Android.Content.PM.ConfigChanges.KeyboardHidden|Android.Content.PM.ConfigChanges.Orientation|Android.Content.PM.ConfigChanges.ScreenSize)]
 	public class WebPageActivity : Activity
 	{
 		
 		protected static TextView loadingBar;
-		public WebView webview;
+		protected static WebView webview;
 		protected static ImageButton backbutton;
 		protected static ImageButton forwardbutton;
 
@@ -40,7 +40,12 @@ namespace XiaomiMIUIHellas
 			webview = FindViewById<WebView>(Resource.Id.webSiteView);
 			webview.SetWebViewClient(client);
 			webview.Settings.JavaScriptEnabled = true;
-			//webview.CanGoBack();
+			webview.Settings.LoadWithOverviewMode = true;
+			//webview.Settings.UseWideViewPort = true;
+			//webview.Settings.SupportZoom();
+			webview.Settings.SetSupportZoom(true);
+			webview.Settings.BuiltInZoomControls = true;
+			webview.Settings.DisplayZoomControls = false;
 			loadingBar.Visibility = ViewStates.Visible;
 			webview.LoadUrl("https://xiaomi-miui.gr/community/");
 
@@ -55,7 +60,7 @@ namespace XiaomiMIUIHellas
 
 			                                           
 			homebutton.Click += delegate {
-				StartActivity(typeof(MainActivity));
+				//StartActivity(typeof(MainActivity));
 				Finish();
 			};
 			refreshbutton.Click += delegate {
@@ -64,17 +69,25 @@ namespace XiaomiMIUIHellas
 
 			backbutton.Click += delegate {
 				webview.GoBack();
+				//webview.ScrollTo(0, 0);
 			};
 
 			forwardbutton.Click += delegate {
 				webview.GoForward();
+				//webview.ScrollTo(0, 0);
 			};
 		}
-		public override void OnBackPressed()
-		{
-			this.webview.GoBack();
-		}
 
+		public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+		{
+			if (keyCode == Keycode.Back && webview.CanGoBack())
+			{
+				webview.GoBack();
+				return true;
+			}
+
+			return base.OnKeyDown(keyCode, e);
+		}
 
 		private class MyWebViewClient : WebViewClient
 		{
@@ -82,26 +95,16 @@ namespace XiaomiMIUIHellas
 			{
 				base.OnPageStarted(view, url, favicon);
 				loadingBar.Visibility = ViewStates.Visible;
-				//backbutton.Visibility = ViewStates.Invisible;
-				//forwardbutton.Visibility = ViewStates.Invisible;
-
-				//if (view.CanGoBack())
-				//{
-				//	backbutton.Visibility = ViewStates.Visible;
-				//}
-				//if (view.CanGoForward())
-				//{
-				//	forwardbutton.Visibility = ViewStates.Visible;
-				//}
 			}
 
 			public override void OnPageFinished(WebView view, string url)
 			{
 				base.OnPageFinished(view, url);
 				loadingBar.Visibility = ViewStates.Gone;
-
+				//webview.ScrollTo(0, 0);
 			}
 
 		}
+
 	}
 }

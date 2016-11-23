@@ -52,7 +52,7 @@ namespace XiaomiMIUIHellas
 
 			homebutton.Click += delegate
 			{
-				StartActivity(typeof(MainActivity));
+				//StartActivity(typeof(MainActivity));
 				Finish();
 			};
 			refreshbutton.Click += delegate
@@ -71,11 +71,16 @@ namespace XiaomiMIUIHellas
 			};
 		}
 
-		public override void OnBackPressed()
+		public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
 		{
-			this.localWebView.GoBack();
-		}
+			if (keyCode == Keycode.Back && localWebView.CanGoBack())
+			{
+				localWebView.GoBack();
+				return true;
+			}
 
+			return base.OnKeyDown(keyCode, e);
+		}
 
 		private class MyWebViewClient : WebViewClient
 		{
