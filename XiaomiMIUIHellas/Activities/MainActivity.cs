@@ -39,15 +39,16 @@ namespace XiaomiMIUIHellas
 			bool visible = false;
 
 			//Device info front screen
-			string osVersion = Build.VERSION.Release;
+			//string osVersion = Build.VERSION.Release;
 			//string miuiversion = Build.User;
-			string manufacturer = Build.Manufacturer;
-			string model = Build.Model;
-			string vers = Build.Id;
-			string grversion = getSystemProperty("ro.modversion");
-			string grversiontrimmed = grversion.Replace("-", " ");
-			TextView deviceinfo = FindViewById<TextView>(Resource.Id.devicetext);
-			deviceinfo.Text = manufacturer+" "+model+"\nAndroid Version: " + osVersion +"\nMIUI Version: "+grversiontrimmed;
+			//string manufacturer = Build.Manufacturer;
+			//string model = Build.Model;
+			//string vers = Build.Id;
+			//string grversion = getSystemProperty("ro.modversion");
+			//string grversiontrimmed = grversion.Replace("-", " ");
+			//TextView deviceinfo = FindViewById<TextView>(Resource.Id.devicetext);
+			//deviceinfo.Text = manufacturer+" "+model+"\nAndroid Version: " + osVersion +"\nMIUI Version: "+grversiontrimmed;
+			//deviceinfo.Text = manufacturer + " " + model + "\nAndroid Version: " + osVersion + "\nMIUI Version: " + miuiversion;
 			//deviceinfo.Visibility = Android.Views.ViewStates.Invisible;
 
 
@@ -117,17 +118,17 @@ namespace XiaomiMIUIHellas
 
 			facebookbutton.Click += delegate {
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
-				builder.SetMessage("Πρόκειται να επισκεφτείτε την σελίδα μας στο Facebook!").SetTitle("Μήνυμα απο Xiaomi-Miui Hellas");
+				builder.SetMessage("Πρόκειται να επισκεφτείτε τη σελίδα μας στο Facebook!").SetTitle("Μήνυμα απο Xiaomi-Miui Hellas");
 				builder.SetPositiveButton("ΕΝΤΑΞΕΙ", (sender, e) => {Intent fb = newFacebookIntent(pm, FACEBOOK_URL);
 					StartActivity(fb); });
-				builder.SetNegativeButton("ΟΧΙ", (sender, e) => { }	);
+				builder.SetNegativeButton("ΠΙΣΩ", (sender, e) => { }	);
 				AlertDialog dialog = builder.Create();
 				dialog.Show();
 
 			};
 			youtubebutton.Click += delegate {
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
-				builder.SetMessage("Πρόκειται να επισκεφτείτε την σελίδα μας στο Youtube. Μην ξεχάσετε να κάνετε Subscribe στο κανάλι μας!").SetTitle("Xiaomi-Miui Hellas Message");
+				builder.SetMessage("Πρόκειται να επισκεφτείτε τη σελίδα μας στο Youtube. Μη ξεχάσετε να κάνετε Subscribe στο κανάλι μας!").SetTitle("Μήνυμα απο Xiaomi-Miui Hellas");
 				builder.SetPositiveButton("ΕΝΤΑΞΕΙ", (sender, e) =>
 				{
 					try
@@ -145,14 +146,14 @@ namespace XiaomiMIUIHellas
 					}
 
 				});
-				builder.SetNegativeButton("ΟΧΙ", (sender, e) => { });
+				builder.SetNegativeButton("ΠΙΣΩ", (sender, e) => { });
 				AlertDialog dialog = builder.Create();
 				dialog.Show();
 
 			};
 			twitterbutton.Click += delegate {
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
-				builder.SetMessage("Πρόκειται να επισκεφτείτε την σελίδα μας στο Twitter. Follow us!").SetTitle("Xiaomi-Miui Hellas Message");
+				builder.SetMessage("Πρόκειται να επισκεφτείτε τη σελίδα μας στο Twitter. Follow us!").SetTitle("Μήνυμα απο Xiaomi-Miui Hellas");
 				builder.SetPositiveButton("ΕΝΤΑΞΕΙ", (sender, e) =>
 				{
 					try
@@ -170,7 +171,7 @@ namespace XiaomiMIUIHellas
 					}
 
 				});
-				builder.SetNegativeButton("ΟΧΙ", (sender, e) => { });
+				builder.SetNegativeButton("ΠΙΣΩ", (sender, e) => { });
 				AlertDialog dialog = builder.Create();
 				dialog.Show();
 
@@ -179,7 +180,7 @@ namespace XiaomiMIUIHellas
 			googleplusbutton.Click += delegate {
 				
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
-				builder.SetMessage("Πρόκειται να επισκεφτείτε την σελίδα μας στο Google+").SetTitle("Xiaomi-Miui Hellas Message");
+				builder.SetMessage("Πρόκειται να επισκεφτείτε τη σελίδα μας στο Google+").SetTitle("Μήνυμα απο Xiaomi-Miui Hellas");
 				builder.SetPositiveButton("ΕΝΤΑΞΕΙ", (sender, e) =>
 				{
 					try
@@ -197,7 +198,7 @@ namespace XiaomiMIUIHellas
 					}
 
 				});
-				builder.SetNegativeButton("ΟΧΙ", (sender, e) => { });
+				builder.SetNegativeButton("ΠΙΣΩ", (sender, e) => { });
 				AlertDialog dialog = builder.Create();
 				dialog.Show();
 
@@ -245,9 +246,11 @@ namespace XiaomiMIUIHellas
 		public string getSystemProperty(string key) 
 		{
 			string miuiversion= null;
-			var buildprop = System.IO.File.OpenRead("/system/build.prop");
+
 			try
 			{
+				var buildprop = System.IO.File.OpenRead("/system/build.prop");
+
 				using (var streamReader = new StreamReader(buildprop)) 
 				{
 					//value = streamReader.ReadToEnd();

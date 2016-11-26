@@ -174,83 +174,80 @@ namespace XiaomiMIUIHellas
 			// aapt resource value: 0x7f060005
 			public const int YoutubeButton = 2131099653;
 			
-			// aapt resource value: 0x7f060021
-			public const int backpageButton = 2131099681;
-			
-			// aapt resource value: 0x7f060009
-			public const int devicetext = 2131099657;
-			
-			// aapt resource value: 0x7f06000e
-			public const int dropdownmenubutton = 2131099662;
-			
-			// aapt resource value: 0x7f06001a
-			public const int firstlinearwebview = 2131099674;
-			
 			// aapt resource value: 0x7f060020
-			public const int forwardpageButton = 2131099680;
+			public const int backpageButton = 2131099680;
 			
-			// aapt resource value: 0x7f060011
-			public const int gridLayout1 = 2131099665;
-			
-			// aapt resource value: 0x7f060013
-			public const int guidesbutton = 2131099667;
-			
-			// aapt resource value: 0x7f06000a
-			public const int hellasLogoView = 2131099658;
-			
-			// aapt resource value: 0x7f06000f
-			public const int hiddenLayout = 2131099663;
-			
-			// aapt resource value: 0x7f060017
-			public const int homebuttonMiPhones = 2131099671;
-			
-			// aapt resource value: 0x7f06001d
-			public const int homebuttonWebSite = 2131099677;
-			
-			// aapt resource value: 0x7f060010
-			public const int imageView1 = 2131099664;
-			
-			// aapt resource value: 0x7f06001b
-			public const int loadingtext = 2131099675;
-			
-			// aapt resource value: 0x7f060015
-			public const int miImageButton = 2131099669;
+			// aapt resource value: 0x7f06000d
+			public const int dropdownmenubutton = 2131099661;
 			
 			// aapt resource value: 0x7f060019
-			public const int miphoneswebview = 2131099673;
+			public const int firstlinearwebview = 2131099673;
+			
+			// aapt resource value: 0x7f06001f
+			public const int forwardpageButton = 2131099679;
+			
+			// aapt resource value: 0x7f060010
+			public const int gridLayout1 = 2131099664;
+			
+			// aapt resource value: 0x7f060012
+			public const int guidesbutton = 2131099666;
+			
+			// aapt resource value: 0x7f060009
+			public const int hellasLogoView = 2131099657;
+			
+			// aapt resource value: 0x7f06000e
+			public const int hiddenLayout = 2131099662;
+			
+			// aapt resource value: 0x7f060016
+			public const int homebuttonMiPhones = 2131099670;
+			
+			// aapt resource value: 0x7f06001c
+			public const int homebuttonWebSite = 2131099676;
+			
+			// aapt resource value: 0x7f06000f
+			public const int imageView1 = 2131099663;
+			
+			// aapt resource value: 0x7f06001a
+			public const int loadingtext = 2131099674;
+			
+			// aapt resource value: 0x7f060014
+			public const int miImageButton = 2131099668;
 			
 			// aapt resource value: 0x7f060018
-			public const int refreshbuttonMiPhones = 2131099672;
+			public const int miphoneswebview = 2131099672;
 			
-			// aapt resource value: 0x7f06001e
-			public const int refreshbuttonWebSite = 2131099678;
+			// aapt resource value: 0x7f060017
+			public const int refreshbuttonMiPhones = 2131099671;
+			
+			// aapt resource value: 0x7f06001d
+			public const int refreshbuttonWebSite = 2131099677;
 			
 			// aapt resource value: 0x7f060002
 			public const int relativeLayout1 = 2131099650;
 			
-			// aapt resource value: 0x7f060016
-			public const int relativeLayout2 = 2131099670;
+			// aapt resource value: 0x7f060015
+			public const int relativeLayout2 = 2131099669;
 			
-			// aapt resource value: 0x7f06001c
-			public const int relativeLayoutwebSite = 2131099676;
+			// aapt resource value: 0x7f06001b
+			public const int relativeLayoutwebSite = 2131099675;
 			
-			// aapt resource value: 0x7f060014
-			public const int textView4 = 2131099668;
+			// aapt resource value: 0x7f060013
+			public const int textView4 = 2131099667;
+			
+			// aapt resource value: 0x7f06000a
+			public const int textView5 = 2131099658;
 			
 			// aapt resource value: 0x7f06000b
-			public const int textView5 = 2131099659;
+			public const int textView6 = 2131099659;
+			
+			// aapt resource value: 0x7f06001e
+			public const int webSiteView = 2131099678;
 			
 			// aapt resource value: 0x7f06000c
-			public const int textView6 = 2131099660;
+			public const int websitebutton = 2131099660;
 			
-			// aapt resource value: 0x7f06001f
-			public const int webSiteView = 2131099679;
-			
-			// aapt resource value: 0x7f06000d
-			public const int websitebutton = 2131099661;
-			
-			// aapt resource value: 0x7f060012
-			public const int xtrvImageButton = 2131099666;
+			// aapt resource value: 0x7f060011
+			public const int xtrvImageButton = 2131099665;
 			
 			static Id()
 			{
@@ -275,7 +272,10 @@ namespace XiaomiMIUIHellas
 			public const int NewMain = 2130968578;
 			
 			// aapt resource value: 0x7f040003
-			public const int WebSite = 2130968579;
+			public const int SplashScreen = 2130968579;
+			
+			// aapt resource value: 0x7f040004
+			public const int WebSite = 2130968580;
 			
 			static Layout()
 			{

@@ -81,17 +81,6 @@
                     android:layout_alignParentRight="true"
                     android:background="#01ffffff"
                     android:src="@drawable/supportred" />
-                <TextView
-                    android:text="MyDevice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/devicetext"
-                    android:layout_toRightOf="@id/SocialBar"
-                    android:layout_marginTop="5dp"
-                    android:gravity="left"
-                    android:textColor="#ba312525"
-                    android:textSize="10dp"
-                    android:layout_toLeftOf="@id/VipButton" />
             </RelativeLayout>
             <ImageView
                 android:src="@drawable/mifan"

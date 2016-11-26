@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{B05A4F23-E3AD-4F43-9AAF-CEC09E099357}|Default">
-  <MonoDevelop.Ide.ItemProperties.XiaomiMIUIHellas AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.d505d9f8" AndroidDesignerPreferredTheme="Theme.Material" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="XiaomiMIUIHellas/Resources/drawable/RoundedButtons.axml">
+  <MonoDevelop.Ide.ItemProperties.XiaomiMIUIHellas AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Android_Accelerated_x86" AndroidDesignerPreferredTheme="Theme.Material" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="XiaomiMIUIHellas/Properties/AndroidManifest.xml">
     <Files>
-      <File FileName="XiaomiMIUIHellas/Properties/AndroidManifest.xml" Line="6" Column="12" />
-      <File FileName="XiaomiMIUIHellas/Activities/MainActivity.cs" Line="50" Column="116" />
+      <File FileName="XiaomiMIUIHellas/Properties/AndroidManifest.xml" Line="12" Column="42" />
+      <File FileName="XiaomiMIUIHellas/Activities/MainActivity.cs" Line="12" Column="15" />
       <File FileName="XiaomiMIUIHellas/Activities/WebPageActivity.cs" Line="17" Column="247" />
       <File FileName="XiaomiMIUIHellas/Activities/XtrvRoms.cs" Line="55" Column="7" />
       <File FileName="XiaomiMIUIHellas/Activities/VipActivity.cs" Line="55" Column="7" />

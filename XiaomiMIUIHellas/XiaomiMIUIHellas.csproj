@@ -100,6 +100,7 @@
     <AndroidResource Include="Resources\drawable\rippedcontin.png" />
     <AndroidResource Include="Resources\drawable\userinfodown.png" />
     <AndroidResource Include="Resources\drawable\userinfoup.png" />
+    <AndroidResource Include="Resources\layout\SplashScreen.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
