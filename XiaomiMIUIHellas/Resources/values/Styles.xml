@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="Theme.Default" parent="@android:style/Theme.Material"></style>
+	
+    <style name="Theme.NoTitle" parent="@android:style/Theme.Material.NoActionBar">
+		<item name="android:statusBarColor">#D47508</item>
+		<item name="android:colorPrimaryDark">#D47508</item>
+	</style>
+    <style name="Theme.FullScreen" parent="@android:style/Theme.Material.NoActionBar.Fullscreen">
+	</style>
+	<style name="Theme.CustomTheme" parent="@android:style/Theme.Material">
+	<item name="android:windowNoTitle">true</item>
+    <item name="android:windowActionBar">false</item>
+    <item name="android:colorPrimary">#5A8622</item>
+	</style>
+</resources>

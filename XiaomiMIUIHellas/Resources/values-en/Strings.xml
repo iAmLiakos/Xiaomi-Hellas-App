@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!--MainActivity strings-->
+	<string name="app_name">XiaomiGR</string>
+	<string name="miuihellas">Xiaomi-Miui Hellas</string>
+	<string name="enterforum">Enter</string>
+	<string name="howto">How to</string>
+	<string name="devicelist">List of all Xiaomi devices by GSMArena</string>
+
+	<!--TabsActivity strings and urls-->
+	<string name="tablabel_name">Bookmarks Page</string>
+	<string	name="guides">Guides</string>
+	<string name="downloads">Downloads</string>
+	<string name="devices">Devices</string>
+	
+	<!--WebPageActivity strings-->
+	<string name="loadingbar">Loading...</string>
+</resources>

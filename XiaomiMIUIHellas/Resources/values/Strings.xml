@@ -1,4 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">XiaomiHellas</string>
+	<!--MainActivity strings-->
+	<string name="app_name">XiaomiGR</string>
+	<string name="miuihellas">Xiaomi-Miui Hellas</string>
+	<string name="enterforum">Είσοδος</string>
+	<string name="howto">Οδηγοί</string>
+	<string name="devicelist">Λίστα με όλες τις συσκευές της Xiaomi απο το GSMArena</string>
+
+	<!--TabsActivity strings and urls-->
+	<string name="tablabel_name">Σελίδα γρήγορης πρόσβασης</string>
+	<string	name="guides">Οδηγοί</string>
+	<string name="downloads">Downloads</string>
+	<string name="devices">Συσκευές</string>
+
+	<!--WebPageActivity strings-->
+	<string name="loadingbar">Φορτώνει...</string>
 </resources>

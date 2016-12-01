@@ -11,10 +11,11 @@ using Android.Net;
 using Java.Lang;
 using Java.IO;
 using System.IO;
+using System.Collections.Generic;
 
 namespace XiaomiMIUIHellas
 {
-	[Activity(Label = "XiaomiGR", MainLauncher = true, Icon = "@mipmap/icon",ConfigurationChanges = ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden | ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
+	[Activity(Label = "XiaomiGR", Theme = "@style/Theme.FullScreen", MainLauncher = true, Icon = "@mipmap/icon",ConfigurationChanges = ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden | ConfigChanges.ScreenSize, ScreenOrientation = ScreenOrientation.Portrait)]
 	public class MainActivity : Activity
 	{
 		private ISharedPreferences mPrefs;
@@ -28,29 +29,45 @@ namespace XiaomiMIUIHellas
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
-			this.Window.AddFlags(Android.Views.WindowManagerFlags.Fullscreen);
-			this.Window.RequestFeature(Android.Views.WindowFeatures.NoTitle);
+			//this.Window.AddFlags(Android.Views.WindowManagerFlags.Fullscreen);
+			//this.Window.RequestFeature(Android.Views.WindowFeatures.NoTitle);
+			OverridePendingTransition(Android.Resource.Animation.FadeIn, Android.Resource.Animation.FadeOut);
 			PackageManager pm = this.PackageManager;
-
 			// Set our view from the "main" layout resource
 			SetContentView(Resource.Layout.Main);
-			LinearLayout hiddenlayout = FindViewById<LinearLayout>(Resource.Id.hiddenLayout);
-			hiddenlayout.Visibility = Android.Views.ViewStates.Gone;
-			bool visible = false;
+			//LinearLayout hiddenlayout = FindViewById<LinearLayout>(Resource.Id.hiddenLayout);
+			//hiddenlayout.Visibility = Android.Views.ViewStates.Gone;
+			//bool visible = false;
 
 			//Device info front screen
 			//string osVersion = Build.VERSION.Release;
 			//string miuiversion = Build.User;
-			//string manufacturer = Build.Manufacturer;
-			//string model = Build.Model;
-			//string vers = Build.Id;
-			//string grversion = getSystemProperty("ro.modversion");
-			//string grversiontrimmed = grversion.Replace("-", " ");
-			//TextView deviceinfo = FindViewById<TextView>(Resource.Id.devicetext);
-			//deviceinfo.Text = manufacturer+" "+model+"\nAndroid Version: " + osVersion +"\nMIUI Version: "+grversiontrimmed;
-			//deviceinfo.Text = manufacturer + " " + model + "\nAndroid Version: " + osVersion + "\nMIUI Version: " + miuiversion;
-			//deviceinfo.Visibility = Android.Views.ViewStates.Invisible;
+			try
+			{
+				string manufacturer = Build.Manufacturer;
+				string model = Build.Model;
+				//string vers = Build.Id;
+				string grversion = getSystemProperty("ro.modversion");
+				string grversiontrimmed = grversion.Replace("-", " ");
 
+				TextView deviceinfo = FindViewById<TextView>(Resource.Id.deviceinfotext);
+				//long mb = getMbConsumed();
+				//deviceinfo.Text = manufacturer+" "+model+"\nAndroid Version: " + osVersion +"\nMIUI Version: "+grversiontrimmed;
+				deviceinfo.Text = manufacturer + " " + model + "\n" + grversiontrimmed;
+				//deviceinfo.Visibility = Android.Views.ViewStates.Invisible;
+
+				PackageInfo info = pm.GetPackageInfo(this.PackageName, 0);
+				string version = info.VersionName;
+				int versioncode = info.VersionCode;
+				TextView appversion = FindViewById<TextView>(Resource.Id.appversionnumber);
+				appversion.Text = "Version"+"\n"+version;
+
+			}
+			catch (System.Exception)
+			{
+				TextView deviceinfo = FindViewById<TextView>(Resource.Id.deviceinfotext);
+				deviceinfo.Text = "-";
+			}
 
 			//SharedPref gia monadiki emfanisi tou alertdialog
 			mPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
@@ -71,16 +88,12 @@ namespace XiaomiMIUIHellas
 
 			var enterButton = FindViewById<ImageButton>(Resource.Id.websitebutton);
 			var dropdown = FindViewById<ImageButton>(Resource.Id.dropdownmenubutton);
-			var miImageButton = FindViewById<ImageButton>(Resource.Id.miImageButton);
-			var xtrvButton = FindViewById<Button>(Resource.Id.xtrvImageButton);
-			var guidesbutton = FindViewById<Button>(Resource.Id.guidesbutton);
 			var vipbutton = FindViewById<ImageButton>(Resource.Id.VipButton);
 			var facebookbutton = FindViewById<ImageButton>(Resource.Id.FacebookButton);
 			var youtubebutton = FindViewById<ImageButton>(Resource.Id.YoutubeButton);
 			var twitterbutton = FindViewById<ImageButton>(Resource.Id.TwitterButton);
 			var googleplusbutton = FindViewById<ImageButton>(Resource.Id.GooglePlusButton);
-			//var deviceinfodown = FindViewById<ImageButton>(Resource.Id.downButtonDevice);
-			//var deviceinfoup = FindViewById<ImageButton>(Resource.Id.upButtonDevice);
+
 			//deviceinfoup.Visibility = Android.Views.ViewStates.Invisible;
 			//deviceinfodown.Visibility = Android.Views.ViewStates.Invisible;
 
@@ -88,32 +101,13 @@ namespace XiaomiMIUIHellas
 				StartActivity(typeof(WebPageActivity));
 			};
 
-			guidesbutton.Click += delegate {
-				StartActivity(typeof(GuidesActivity));
-			};
-
-			miImageButton.Click += delegate {
-				StartActivity(typeof(MiPhones));
-			};
-
-			xtrvButton.Click += delegate {
-				StartActivity(typeof(XtrvRoms));
-			};
-
 			vipbutton.Click += delegate {
 				StartActivity(typeof(VipActivity));
 			};
 
-			dropdown.Click += delegate {
-				if (!visible) 
-				{
-					hiddenlayout.Visibility = Android.Views.ViewStates.Visible;
-					visible = true;
-					return;
-				}
-				else
-					hiddenlayout.Visibility = Android.Views.ViewStates.Gone;
-					visible = false;
+			dropdown.Click += delegate
+			{
+				StartActivity(typeof(TabsActivity));
 			};
 
 			facebookbutton.Click += delegate {
@@ -219,10 +213,9 @@ namespace XiaomiMIUIHellas
 		}
 		public override void OnBackPressed()
 		{
-			Toast.MakeText(this, "Goodbye!", ToastLength.Long).Show();
+			//Toast.MakeText(this, "Goodbye!", ToastLength.Long).Show();
 			Finish();
 		}
-
 
 		//Facebook intent
 		public static Intent newFacebookIntent(PackageManager pm, string url) 
@@ -267,6 +260,19 @@ namespace XiaomiMIUIHellas
 				return null;
 			}
 			return miuiversion;
+		}
+
+		public long getMbConsumed() 
+		{
+			//float result = 0;
+
+			ActivityManager manager = (ActivityManager)this.GetSystemService(ActivityService);
+			IList<Android.App.ActivityManager.RunningAppProcessInfo> runningApps = manager.RunningAppProcesses;
+
+			long bytes = Android.Net.TrafficStats.MobileRxBytes;
+			long bytes2 = TrafficStats.MobileTxBytes;
+			long result = bytes + bytes2;
+			return result;
 		}
 	}
 

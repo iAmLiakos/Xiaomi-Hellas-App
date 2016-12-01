@@ -4,12 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minWidth="25px"
-    android:minHeight="25px">
+    android:minHeight="25px"
+    android:background="@drawable/testeditedhigh">
     <ScrollView
         android:id="@+id/ScrollView01"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/testedited">
+        android:scrollbars="none"
+        android:minWidth="25px"
+        android:minHeight="25px">
         <LinearLayout
             android:orientation="vertical"
             android:minWidth="25px"
@@ -19,13 +22,11 @@
             android:id="@+id/LinearMainLayout"
             android:layout_gravity="start"
             android:gravity="center"
-            android:scrollbars="vertical"
-            android:scrollbarStyle="insideOverlay"
+            android:scrollbars="none"
             android:overScrollMode="never"
-            android:verticalScrollbarPosition="right"
+            android:verticalScrollbarPosition="defaultPosition"
             android:nestedScrollingEnabled="true"
-            android:scrollIndicators="right"
-            android:scrollbarSize="5dp"
+            android:scrollIndicators="none"
             android:fadeScrollbars="true">
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -38,19 +39,20 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/SocialBar"
                     android:gravity="center"
-                    android:layout_marginLeft="5dp">
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="15dp">
                     <ImageButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="#01ffffff"
-                        android:src="@drawable/facebookblack"
+                        android:src="@drawable/facebooklogo"
                         android:id="@+id/FacebookButton"
                         android:layout_marginRight="20dp"
                         android:layout_marginTop="5dp" />
                     <ImageButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/youtubeblack"
+                        android:src="@drawable/youtubelogo"
                         android:id="@+id/YoutubeButton"
                         android:background="#01ffffff"
                         android:layout_marginRight="20.0dp"
@@ -59,7 +61,7 @@
                     <ImageButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/googleplusblack"
+                        android:src="@drawable/googlepluslogo"
                         android:id="@+id/GooglePlusButton"
                         android:background="#01ffffff"
                         android:layout_marginTop="5dp"
@@ -67,7 +69,7 @@
                     <ImageButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/twitterblack"
+                        android:src="@drawable/twitterlogo"
                         android:id="@+id/TwitterButton"
                         android:background="#01ffffff"
                         android:layout_marginRight="20.0dp"
@@ -80,117 +82,83 @@
                     android:id="@+id/VipButton"
                     android:layout_alignParentRight="true"
                     android:background="#01ffffff"
-                    android:src="@drawable/supportred" />
+                    android:src="@drawable/supportbuttonred" />
+                <TextView
+                    android:text="@string/miuihellas"
+                    android:id="@+id/textView5"
+                    android:gravity="center"
+                    android:textSize="35dp"
+                    android:textStyle="bold"
+                    android:textColor="#96000000"
+                    android:typeface="serif"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    android:layout_marginTop="40dp"
+                    android:shadowColor="#ff272727" />
+                <TextView
+                    android:text="Device info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deviceinfotext"
+                    android:textColor="#b23e3c3c"
+                    android:textSize="8dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp"
+                    android:gravity="right" />
             </RelativeLayout>
             <ImageView
                 android:src="@drawable/mifan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/hellasLogoView"
-                android:background="#01ffffff" />
+                android:background="#01ffffff"
+                android:layout_marginTop="40dp" />
             <TextView
-                android:text="Xiaomi-Miui Hellas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView5"
-                android:gravity="center"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="#ff353535" />
-            <TextView
-                android:text="Είσοδος"
+                android:text="@string/enterforum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView6"
                 android:gravity="center"
                 android:layout_marginTop="50.0dp"
-                android:layout_marginRight="2dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginLeft="4dp" />
             <ImageButton
-                android:src="@drawable/loginblack"
+                android:src="@drawable/enteriamliakos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/websitebutton"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:background="#01ffffff"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp" />
+                android:layout_marginRight="5dp" />
             <ImageButton
-                android:src="@drawable/menubutton"
+                android:src="@drawable/redpin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/dropdownmenubutton"
                 android:background="#01ffffff"
-                android:layout_gravity="center"
-                android:layout_marginTop="60.0dp"
-                android:layout_marginBottom="20dp" />
-            <LinearLayout
-                android:layout_width="350dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="30.0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp" />
+            <TextView
+                android:text="AppVersion"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/hiddenLayout"
-                android:layout_gravity="center"
+                android:id="@+id/appversionnumber"
+                android:layout_gravity="left"
+                android:textColor="#96d7d7d7"
+                android:textSize="7dp"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:layout_marginRight="0.0dp"
-                android:layout_marginTop="2dp">
-                <ImageView
-                    android:src="@android:drawable/arrow_down_float"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageView1" />
-                <GridLayout
-                    android:minWidth="25px"
-                    android:minHeight="25px"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/gridLayout1"
-                    android:rowCount="1"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal"
-                    android:columnCount="2"
-                    android:layout_marginTop="5.0dp"
-                    android:useDefaultMargins="true"
-                    android:contextClickable="true">
-                    <Button
-                        android:background="@drawable/RoundedButtons"
-                        android:text="XTRV"
-                        android:layout_width="80dp"
-                        android:layout_height="50dp"
-                        android:id="@+id/xtrvImageButton"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:textAllCaps="false"
-                        android:layout_gravity="left" />
-                    <Button
-                        android:background="@drawable/RoundedButtons"
-                        android:text="Οδηγοί"
-                        android:layout_width="80dp"
-                        android:layout_height="50dp"
-                        android:id="@+id/guidesbutton"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:textAllCaps="false"
-                        android:gravity="center"
-                        android:layout_gravity="right" />
-                </GridLayout>
-                <TextView
-                    android:text="Λίστα με όλες τις συσκευές της Xiaomi απο το GSMArena"
-                    android:layout_width="230dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView4"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:layout_marginTop="20.0dp" />
-                <ImageButton
-                    android:src="@drawable/mi3png"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/miImageButton"
-                    android:layout_marginTop="5.0dp"
-                    android:layout_gravity="center"
-                    android:background="#01000000" />
-            </LinearLayout>
+                android:rotation="42"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:typeface="sans"
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

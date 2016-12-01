@@ -14,7 +14,7 @@ using Android.Widget;
 
 namespace XiaomiMIUIHellas
 {
-	[Activity(Label = "Xiaomi Hellas Community", ConfigurationChanges= Android.Content.PM.ConfigChanges.Keyboard|Android.Content.PM.ConfigChanges.KeyboardHidden|Android.Content.PM.ConfigChanges.Orientation|Android.Content.PM.ConfigChanges.ScreenSize)]
+	[Activity(Label = "Hellas Community", Theme="@style/Theme.FullScreen" , WindowSoftInputMode = SoftInput.AdjustResize ,ConfigurationChanges= Android.Content.PM.ConfigChanges.Keyboard|Android.Content.PM.ConfigChanges.KeyboardHidden|Android.Content.PM.ConfigChanges.Orientation|Android.Content.PM.ConfigChanges.ScreenSize)]
 	public class WebPageActivity : Activity
 	{
 		
@@ -26,9 +26,7 @@ namespace XiaomiMIUIHellas
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
-			this.Window.AddFlags(Android.Views.WindowManagerFlags.Fullscreen);
-			this.Window.RequestFeature(Android.Views.WindowFeatures.NoTitle);
-
+			OverridePendingTransition(Android.Resource.Animation.FadeIn, Android.Resource.Animation.FadeOut);
 			SetContentView(Resource.Layout.WebSite);
 
 			loadingBar = (TextView)FindViewById(Resource.Id.loadingtext);
@@ -41,6 +39,28 @@ namespace XiaomiMIUIHellas
 			webview.SetWebViewClient(client);
 			webview.Settings.JavaScriptEnabled = true;
 			webview.Settings.LoadWithOverviewMode = true;
+			webview.Settings.DomStorageEnabled = true;
+			webview.Settings.JavaScriptCanOpenWindowsAutomatically = true;
+			//webview.LongClickable = true;
+			//webview.SetWebChromeClient(new WebChromeClient());
+			webview.Download += (object sender, DownloadEventArgs eee) =>
+			{
+				try
+				{
+					var source = Android.Net.Uri.Parse(eee.Url);
+					var request = new DownloadManager.Request(source);
+					request.AllowScanningByMediaScanner();
+					request.SetNotificationVisibility(DownloadVisibility.VisibleNotifyCompleted);
+					request.SetDestinationInExternalPublicDir(Android.OS.Environment.DirectoryDownloads, source.LastPathSegment);
+					var manager = (DownloadManager)this.GetSystemService(Context.DownloadService);
+					manager.Enqueue(request);
+				}
+
+				catch (Exception ex)
+				{
+					Console.WriteLine(ex.Message);
+				};
+			};
 			//webview.Settings.UseWideViewPort = true;
 			//webview.Settings.SupportZoom();
 			webview.Settings.SetSupportZoom(true);
@@ -58,25 +78,30 @@ namespace XiaomiMIUIHellas
 			backbutton.SetImageResource(Resource.Drawable.backbutton);
 			forwardbutton.SetImageResource(Resource.Drawable.forwardbutton);
 
-			                                           
-			homebutton.Click += delegate {
-				//StartActivity(typeof(MainActivity));
-				Finish();
-			};
-			refreshbutton.Click += delegate {
-				webview.Reload();
-			};
 
-			backbutton.Click += delegate {
-				webview.GoBack();
-				//webview.ScrollTo(0, 0);
-			};
+				homebutton.Click += delegate
+				{
+					//StartActivity(typeof(MainActivity));
+					Finish();
+					OverridePendingTransition(Android.Resource.Animation.FadeIn, Android.Resource.Animation.FadeOut);
+				};
+				refreshbutton.Click += delegate
+				{
+					webview.Reload();
+				};
 
-			forwardbutton.Click += delegate {
-				webview.GoForward();
-				//webview.ScrollTo(0, 0);
-			};
-		}
+				backbutton.Click += delegate
+				{
+					webview.GoBack();
+					//webview.ScrollTo(0, 0);
+				};
+
+				forwardbutton.Click += delegate
+				{
+					webview.GoForward();
+					//webview.ScrollTo(0, 0);
+				};
+			}
 
 		public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
 		{
@@ -85,8 +110,8 @@ namespace XiaomiMIUIHellas
 				webview.GoBack();
 				return true;
 			}
-
 			return base.OnKeyDown(keyCode, e);
+
 		}
 
 		private class MyWebViewClient : WebViewClient

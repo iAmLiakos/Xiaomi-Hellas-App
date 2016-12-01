@@ -17,8 +17,9 @@ namespace XiaomiMIUIHellas
 	[Activity(Label = "Ευρετήριο Οδηγών")]
 	public class GuidesActivity : Activity
 	{
-		private WebView localWebView;
+		private WebView webview;
 		protected static TextView loadingBar;
+		protected static String GUIDES_URL = "https://xiaomi-miui.gr/community/index.php/Thread/13853-%CE%93%CE%B5%CE%BD%CE%B9%CE%BA%CF%8C-%CE%B5%CF%85%CF%81%CE%B5%CF%84%CE%AE%CF%81%CE%B9%CE%BF-%CE%BF%CE%B4%CE%B7%CE%B3%CF%8E%CE%BD-%CE%B3%CE%B9%CE%B1-%CE%BA%CE%AC%CE%B8%CE%B5-%CF%83%CF%85%CF%83%CE%BA%CE%B5%CF%85%CE%AE/?pageNo=1";
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -32,13 +33,7 @@ namespace XiaomiMIUIHellas
 			ImageButton backbutton = (ImageButton)FindViewById(Resource.Id.backpageButton);
 			ImageButton forwardbutton = (ImageButton)FindViewById(Resource.Id.forwardpageButton);
 
-			var client = new MyWebViewClient();
-
-			localWebView = FindViewById<WebView>(Resource.Id.webSiteView);
-			localWebView.SetWebViewClient(client);
-			localWebView.Settings.JavaScriptEnabled = true;
-			localWebView.LoadUrl("https://xiaomi-miui.gr/community/index.php/Thread/13853-%CE%93%CE%B5%CE%BD%CE%B9%CE%BA%CF%8C-%CE%B5%CF%85%CF%81%CE%B5%CF%84%CE%AE%CF%81%CE%B9%CE%BF-%CE%BF%CE%B4%CE%B7%CE%B3%CF%8E%CE%BD-%CE%B3%CE%B9%CE%B1-%CE%BA%CE%AC%CE%B8%CE%B5-%CF%83%CF%85%CF%83%CE%BA%CE%B5%CF%85%CE%AE/?pageNo=1");
-			loadingBar.Visibility = ViewStates.Visible;
+			setupWebview(GUIDES_URL);
 
 			var homebutton = FindViewById<ImageButton>(Resource.Id.homebuttonWebSite);
 			homebutton.SetImageResource(Resource.Drawable.home);
@@ -58,25 +53,61 @@ namespace XiaomiMIUIHellas
 			};
 			refreshbutton.Click += delegate
 			{
-				localWebView.Reload();
+				webview.Reload();
 			};
 
 			backbutton.Click += delegate
 			{
-				localWebView.GoBack();
+				webview.GoBack();
 			};
 
 			forwardbutton.Click += delegate
 			{
-				localWebView.GoForward();
+				webview.GoForward();
 			};
+		}
+
+		public void setupWebview(string url) 
+		{
+			var client = new MyWebViewClient();
+
+			webview = FindViewById<WebView>(Resource.Id.webSiteView);
+			webview.SetWebViewClient(client);
+			webview.Settings.JavaScriptEnabled = true;
+			webview.Settings.LoadWithOverviewMode = true;
+			webview.LongClickable = true;
+			webview.Download += (object sender, DownloadEventArgs eee) =>
+			{
+				try
+				{
+					var source = Android.Net.Uri.Parse(eee.Url);
+					var request = new DownloadManager.Request(source);
+					request.AllowScanningByMediaScanner();
+					request.SetNotificationVisibility(DownloadVisibility.VisibleNotifyCompleted);
+					request.SetDestinationInExternalPublicDir(Android.OS.Environment.DirectoryDownloads, source.LastPathSegment);
+					var manager = (DownloadManager)this.GetSystemService(Context.DownloadService);
+					manager.Enqueue(request);
+				}
+
+				catch (Exception ex)
+				{
+					Console.WriteLine(ex.Message);
+				};
+			};
+			//webview.Settings.UseWideViewPort = true;
+			//webview.Settings.SupportZoom();
+			webview.Settings.SetSupportZoom(true);
+			webview.Settings.BuiltInZoomControls = true;
+			webview.Settings.DisplayZoomControls = false;
+			loadingBar.Visibility = ViewStates.Visible;
+			webview.LoadUrl(url);
 		}
 
 		public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
 		{
-			if (keyCode == Keycode.Back && localWebView.CanGoBack())
+			if (keyCode == Keycode.Back && webview.CanGoBack())
 			{
-				localWebView.GoBack();
+				webview.GoBack();
 				return true;
 			}
 
