@@ -244,6 +244,49 @@ namespace XiaomiMIUIHellas
 			};
 
 			ActionBar.AddTab(tab);
+			tab = ActionBar.NewTab();
+			tab.SetText("Me");
+			tab.TabSelected += (sender, args) =>
+			{
+				SetContentView(Resource.Layout.AboutMyDevice);
+				
+				try
+				{
+					string manufacturer = Build.Manufacturer;
+					string model = Build.Model;
+					string board = Build.Board;
+					string booloader = Build.Bootloader;
+					string brand = Build.Brand;
+					string cpuabi = Build.CpuAbi;
+					string cpuabi2 = Build.CpuAbi2;
+					string device = Build.Device;
+					string display = Build.Display;
+					string fingerprint = Build.Fingerprint;
+					string hardware = Build.Hardware;
+					string host = Build.Host;
+					string id = Build.Id;
+					string product = Build.Product;
+					string radio = Build.Radio;
+					string radioversion = Build.RadioVersion;
+					string serial = Build.Serial;
+					long time = Build.Time;
+					string type = Build.Type;
+					string user = Build.User;
+
+					TextView text = FindViewById<TextView>(Resource.Id.aboutmydevice);
+					text.Text = "manufacturer: "+manufacturer + "\n" +"model: "+ model + "\n" +"board: " + board + "\n" +"bootloader: " + booloader + "\n" +"brand: " + brand+ "\n" +"cpuabi: " + cpuabi + "\n" +"cpuabi2: " +
+						cpuabi2 + "\n" +"device: " + device + "\n" +"display: " + display + "\n" +"fingerprint: " + fingerprint+ "\n" +"hardware: " + hardware+ "\n" +"host: " + host+ "\n" +"id: " + id+ "\n" +"product: " + product + "\n" +"radio: " + radio + "\n" +"radioversion: " + radioversion + "\n" +"serial: " + serial+ "\n" +"time: " + time+ "\n" +"type: " + type+ "\n" +"user: " + user;				
+				}
+
+				catch (Exception)
+				{
+					TextView text = FindViewById<TextView>(Resource.Id.aboutmydevice);
+					text.Text = "error";
+				}
+
+			};
+
+			ActionBar.AddTab(tab);
 			// Create your application here
 		}
 

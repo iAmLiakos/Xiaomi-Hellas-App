@@ -16,6 +16,7 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
+    <AndroidTlsProvider></AndroidTlsProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -81,6 +82,8 @@
     <Compile Include="Activities\VipActivity.cs" />
     <Compile Include="Activities\SplashActivity.cs" />
     <Compile Include="Activities\TabsActivity.cs" />
+    <Compile Include="Activities\Helpers.cs" />
+    <Compile Include="RomVersion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -139,7 +142,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\googlepluslogo.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\twitterlogo.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\youtubelogo.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\testeditedhigh.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\testeditedhighextra.png" />
     <AndroidResource Include="Resources\drawable-hdpi\morebutton.png" />
     <AndroidResource Include="Resources\drawable-mdpi\morebutton.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\morebutton.png" />
@@ -180,6 +183,9 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\redpin.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\redpin.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\enteriamliakos.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\rippedcontin.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\rippedsquare.png" />
+    <AndroidResource Include="Resources\layout\AboutMyDevice.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

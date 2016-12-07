@@ -29,19 +29,32 @@ namespace XiaomiMIUIHellas
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
-			//this.Window.AddFlags(Android.Views.WindowManagerFlags.Fullscreen);
-			//this.Window.RequestFeature(Android.Views.WindowFeatures.NoTitle);
 			OverridePendingTransition(Android.Resource.Animation.FadeIn, Android.Resource.Animation.FadeOut);
 			PackageManager pm = this.PackageManager;
 			// Set our view from the "main" layout resource
 			SetContentView(Resource.Layout.Main);
-			//LinearLayout hiddenlayout = FindViewById<LinearLayout>(Resource.Id.hiddenLayout);
-			//hiddenlayout.Visibility = Android.Views.ViewStates.Gone;
-			//bool visible = false;
 
 			//Device info front screen
-			//string osVersion = Build.VERSION.Release;
-			//string miuiversion = Build.User;
+			TextView deviceinfo = FindViewById<TextView>(Resource.Id.deviceinfotext);
+			try
+			{
+				
+				string manufacturer = Build.Manufacturer;
+				string model = Build.Model;
+				PackageInfo info = pm.GetPackageInfo(this.PackageName, 0);
+				string version = info.VersionName;
+				int versioncode = info.VersionCode;
+				TextView appversion = FindViewById<TextView>(Resource.Id.appversionnumber);
+				appversion.Text = "V" + version;
+				deviceinfo.Text = manufacturer + " " + model;
+
+			}
+			catch (System.Exception)
+			{
+				deviceinfo.Text = "-";
+				return;
+			}
+
 			try
 			{
 				string manufacturer = Build.Manufacturer;
@@ -49,24 +62,13 @@ namespace XiaomiMIUIHellas
 				//string vers = Build.Id;
 				string grversion = getSystemProperty("ro.modversion");
 				string grversiontrimmed = grversion.Replace("-", " ");
-
-				TextView deviceinfo = FindViewById<TextView>(Resource.Id.deviceinfotext);
-				//long mb = getMbConsumed();
-				//deviceinfo.Text = manufacturer+" "+model+"\nAndroid Version: " + osVersion +"\nMIUI Version: "+grversiontrimmed;
 				deviceinfo.Text = manufacturer + " " + model + "\n" + grversiontrimmed;
-				//deviceinfo.Visibility = Android.Views.ViewStates.Invisible;
-
-				PackageInfo info = pm.GetPackageInfo(this.PackageName, 0);
-				string version = info.VersionName;
-				int versioncode = info.VersionCode;
-				TextView appversion = FindViewById<TextView>(Resource.Id.appversionnumber);
-				appversion.Text = "Version"+"\n"+version;
 
 			}
 			catch (System.Exception)
-			{
-				TextView deviceinfo = FindViewById<TextView>(Resource.Id.deviceinfotext);
+			{	
 				deviceinfo.Text = "-";
+				return;
 			}
 
 			//SharedPref gia monadiki emfanisi tou alertdialog
@@ -214,7 +216,8 @@ namespace XiaomiMIUIHellas
 		public override void OnBackPressed()
 		{
 			//Toast.MakeText(this, "Goodbye!", ToastLength.Long).Show();
-			Finish();
+			base.OnBackPressed();
+			//Finish();
 		}
 
 		//Facebook intent

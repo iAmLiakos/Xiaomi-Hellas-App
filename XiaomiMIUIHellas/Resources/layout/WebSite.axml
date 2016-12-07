@@ -50,7 +50,8 @@
             android:overScrollMode="ifContentScrolls"
             android:layout_marginTop="2dp"
             android:background="#ff546e7a"
-            android:layout_below="@+id/homebuttonWebSite" />
+            android:layout_below="@+id/homebuttonWebSite"
+            android:layout_alignParentBottom="true" />
         <ImageButton xmlns:tools="http://schemas.android.com/tools"
             android:src="@drawable/forwardbutton"
             android:layout_width="wrap_content"

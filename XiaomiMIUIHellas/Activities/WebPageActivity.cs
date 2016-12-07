@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Webkit;
 using Android.Widget;
 
+
 namespace XiaomiMIUIHellas
 {
 	[Activity(Label = "Hellas Community", Theme="@style/Theme.FullScreen" , WindowSoftInputMode = SoftInput.AdjustResize ,ConfigurationChanges= Android.Content.PM.ConfigChanges.Keyboard|Android.Content.PM.ConfigChanges.KeyboardHidden|Android.Content.PM.ConfigChanges.Orientation|Android.Content.PM.ConfigChanges.ScreenSize)]
@@ -33,16 +34,25 @@ namespace XiaomiMIUIHellas
 			backbutton = (ImageButton)FindViewById(Resource.Id.backpageButton);
 			forwardbutton = (ImageButton)FindViewById(Resource.Id.forwardpageButton);
 
-			var client = new MyWebViewClient();
+			//var client = new MyWebViewClient();
 
 			webview = FindViewById<WebView>(Resource.Id.webSiteView);
-			webview.SetWebViewClient(client);
+			WebSettings websettings = webview.Settings;
+			websettings.AllowFileAccess = true;
+			websettings.AllowFileAccessFromFileURLs = true;
+			webview.SetWebChromeClient(new WebChromeClient());
+			webview.SetWebViewClient(new MyWebViewClient());
 			webview.Settings.JavaScriptEnabled = true;
+			webview.AddJavascriptInterface(new WebViewJavaScriptInterface(this), "Android");
 			webview.Settings.LoadWithOverviewMode = true;
+			webview.Settings.UseWideViewPort = true;
 			webview.Settings.DomStorageEnabled = true;
-			webview.Settings.JavaScriptCanOpenWindowsAutomatically = true;
+			//webview.Settings.JavaScriptCanOpenWindowsAutomatically = false;
+			//webview.Settings.SupportZoom();
+			webview.Settings.SetSupportZoom(true);
+			webview.Settings.BuiltInZoomControls = true;
+			webview.Settings.DisplayZoomControls = false;
 			//webview.LongClickable = true;
-			//webview.SetWebChromeClient(new WebChromeClient());
 			webview.Download += (object sender, DownloadEventArgs eee) =>
 			{
 				try
@@ -54,6 +64,7 @@ namespace XiaomiMIUIHellas
 					request.SetDestinationInExternalPublicDir(Android.OS.Environment.DirectoryDownloads, source.LastPathSegment);
 					var manager = (DownloadManager)this.GetSystemService(Context.DownloadService);
 					manager.Enqueue(request);
+					Toast.MakeText(this, "Downloading...", ToastLength.Short).Show();
 				}
 
 				catch (Exception ex)
@@ -61,13 +72,9 @@ namespace XiaomiMIUIHellas
 					Console.WriteLine(ex.Message);
 				};
 			};
-			//webview.Settings.UseWideViewPort = true;
-			//webview.Settings.SupportZoom();
-			webview.Settings.SetSupportZoom(true);
-			webview.Settings.BuiltInZoomControls = true;
-			webview.Settings.DisplayZoomControls = false;
 			loadingBar.Visibility = ViewStates.Visible;
 			webview.LoadUrl("https://xiaomi-miui.gr/community/");
+
 
 			var homebutton = FindViewById<ImageButton>(Resource.Id.homebuttonWebSite);
 			homebutton.SetImageResource(Resource.Drawable.home);
@@ -130,6 +137,35 @@ namespace XiaomiMIUIHellas
 			}
 
 		}
+
+		/*
+ * JavaScript Interface. Web code can access methods in here 
+ * (as long as they have the @JavascriptInterface annotation)
+ */
+		public class WebViewJavaScriptInterface : Java.Lang.Object
+		{
+
+			private Context context;
+
+			/*
+			 * Need a reference to the context in order to sent a post message
+			 */
+			public WebViewJavaScriptInterface(Context context)
+			{
+				this.context = context;
+			}
+
+			/* 
+			 * This method can be called from Android. @JavascriptInterface 
+			 * required after SDK version 17. 
+			 */
+			[JavascriptInterface]
+			public void makeToast(String message, bool lengthLong)
+			{
+				Toast.MakeText(context, message, (lengthLong ? ToastLength.Long : ToastLength.Short)).Show();
+			}
+		}
+
 
 	}
 }

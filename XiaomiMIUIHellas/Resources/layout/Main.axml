@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:background="@drawable/testeditedhigh">
+    android:background="@drawable/testeditedhighextra">
     <ScrollView
         android:id="@+id/ScrollView01"
         android:layout_width="match_parent"
@@ -87,17 +87,16 @@
                     android:text="@string/miuihellas"
                     android:id="@+id/textView5"
                     android:gravity="center"
-                    android:textSize="35dp"
+                    android:textSize="33dp"
                     android:textStyle="bold"
-                    android:textColor="#96000000"
+                    android:textColor="#c17e0000"
                     android:typeface="serif"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="60dp"
                     android:layout_marginRight="60dp"
-                    android:layout_marginTop="40dp"
-                    android:shadowColor="#ff272727" />
-                <TextView
+                    android:layout_marginTop="40dp" />
+            <!--<TextView
                     android:text="Device info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -107,7 +106,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="5dp"
-                    android:gravity="right" />
+                    android:gravity="right" />-->
             </RelativeLayout>
             <ImageView
                 android:src="@drawable/mifan"
@@ -122,9 +121,11 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textView6"
                 android:gravity="center"
-                android:layout_marginTop="50.0dp"
+                android:layout_marginTop="45.0dp"
                 android:textStyle="bold"
-                android:layout_marginLeft="4dp" />
+                android:layout_marginLeft="4dp"
+                android:textSize="15dp"
+                android:textColor="#c19b0000" />
             <ImageButton
                 android:src="@drawable/enteriamliakos"
                 android:layout_width="wrap_content"
@@ -134,31 +135,46 @@
                 android:gravity="center"
                 android:background="#01ffffff"
                 android:layout_marginRight="5dp" />
-            <ImageButton
-                android:src="@drawable/redpin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/dropdownmenubutton"
-                android:background="#01ffffff"
-                android:layout_gravity="right"
-                android:layout_marginTop="30.0dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="10dp" />
-            <TextView
-                android:text="AppVersion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/appversionnumber"
-                android:layout_gravity="left"
-                android:textColor="#96d7d7d7"
-                android:textSize="7dp"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:rotation="42"
-                android:layout_marginLeft="5dp"
-                android:layout_marginBottom="5dp"
-                android:typeface="sans"
-                android:textStyle="bold" />
+            <RelativeLayout
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:id="@+id/relativeLayout2"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:text="Device info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deviceinfotext"
+                    android:textColor="#96000000"
+                    android:textSize="11dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_alignParentLeft="true"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true" />
+                <TextView
+                    android:text="V2.X"
+                    android:id="@+id/appversionnumber"
+                    android:textColor="#96000000"
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:typeface="serif"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentBottom="true" />
+                <ImageButton
+                    android:src="@drawable/redpin"
+                    android:id="@+id/dropdownmenubutton"
+                    android:background="#01ffffff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dp"
+                    android:layout_centerInParent="true" />
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
